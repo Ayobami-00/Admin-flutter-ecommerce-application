@@ -18,4 +18,8 @@ Future<List<DocumentSnapshot>> getBrands(){
   });
 }
 
+Future getSuggestions(String suggestion) =>
+  _firestore.collection(ref).where('brand', isEqualTo: suggestion).getDocuments().then((snap){
+    return snap.documents;
+  });
 }
